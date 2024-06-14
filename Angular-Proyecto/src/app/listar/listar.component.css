@@ -1,0 +1,30 @@
+.badge {
+  padding: 0.5em;
+  border-radius: 0.25em;
+  color: #fff;
+  font-size: 0.9em;
+}
+
+.badge-low {
+  background-color: #28a745; /* Green */
+}
+
+.badge-medium {
+  background-color: #ffc107; /* Yellow */
+}
+
+.badge-high {
+  background-color: #dc3545; /* Red */
+}
+
+.badge-pending {
+  background-color: #6c757d; /* Gray */
+}
+
+.badge-in-progress {
+  background-color: #007bff; /* Blue */
+}
+
+.badge-completed {
+  background-color: #28a745; /* Green */
+}

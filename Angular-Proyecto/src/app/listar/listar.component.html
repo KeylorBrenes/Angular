@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>Tareas</h1>
+  <table class="table table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Asignado a</th>
+        <th>Fecha de Vencimiento</th>
+        <th>Progreso</th>
+        <th>Prioridad</th>
+        <th>Horas</th>
+        <th>¿Listo?</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tarea of tareas">
+        <td>{{ tarea.title }}</td>
+        <td>{{ tarea.description }}</td>
+        <td>{{ tarea.user ? tarea.user.userName : 'Sin asignar' }}</td>
+        <td>{{ tarea.dueDate | date }}</td>
+        <td>
+          <span class="badge" [ngClass]="getTaskProgressClass(tarea.progress)">
+            {{ tarea.progress }}
+          </span>
+        </td>
+        <td>
+          <span class="badge" [ngClass]="getPriorityClass(tarea.priority)">
+            {{ tarea.priority }}
+          </span>
+        </td>
+        <td>{{ tarea.hours }}</td>
+        <td>{{ tarea.isReady ? 'Sí' : 'No' }}</td>
+        <td>
+          <button *ngIf="tarea.id !== undefined" (click)="editarTarea(tarea.id!)" class="btn btn-warning btn-sm">
+            Editar
+          </button>
+          <button *ngIf="tarea.id !== undefined" (click)="eliminarTarea(tarea.id!)" class="btn btn-danger btn-sm">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

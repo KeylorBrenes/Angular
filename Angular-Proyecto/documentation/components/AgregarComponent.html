@@ -1,0 +1,810 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-proyecto documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">angular-proyecto documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AgregarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/agregar/agregar.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component for adding tasks.</p>
+<p>This component provides a form for creating new tasks.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-agregar</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ReactiveFormsModule</code>
+                            <code>CommonModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./agregar.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./agregar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#taskForm" >taskForm</a>
+                            </li>
+                            <li>
+                                <a href="#users" >users</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#agregarTarea" >agregarTarea</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, taskService: <a href="../injectables/TaskService.html" target="_self">TaskService</a>, userService: <a href="../injectables/UserService.html" target="_self">UserService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/agregar/agregar.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Initializes a new instance of the AgregarComponent class.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>FormBuilder to construct the reactive form.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>taskService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TaskService.html" target="_self" >TaskService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Service to handle task-related operations.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Service to handle user-related operations.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="agregarTarea"></a>
+                    <span class="name">
+                        <span ><b>agregarTarea</b></span>
+                        <a href="#agregarTarea"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>agregarTarea()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">src/app/agregar/agregar.component.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Adds a new task.</p>
+<p>This method is called when the form is submitted. If the form is valid, the task is saved using the TaskService.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="61"
+                                    class="link-to-prism">src/app/agregar/agregar.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Lifecycle hook that is called after Angular has initialized all data-bound properties.</p>
+<p>This method retrieves the list of users to assign tasks to.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="taskForm"></a>
+                    <span class="name">
+                        <span ><b>taskForm</b></span>
+                        <a href="#taskForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/agregar/agregar.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Reactive form for the task.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="users"></a>
+                    <span class="name">
+                        <span ><b>users</b></span>
+                        <a href="#users"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>User[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/agregar/agregar.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>List of available users to assign to the task.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from &#x27;@angular/forms&#x27;;
+import { TaskService } from &#x27;../services/task.service&#x27;;
+import { UserService, User } from &#x27;../services/user.service&#x27;;
+import { Task } from &#x27;../models/task.model&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+
+/**
+ * Component for adding tasks.
+ *
+ * This component provides a form for creating new tasks.
+ */
+@Component({
+  selector: &#x27;app-agregar&#x27;,
+  templateUrl: &#x27;./agregar.component.html&#x27;,
+  styleUrls: [&#x27;./agregar.component.css&#x27;],
+  standalone: true,
+  imports: [ReactiveFormsModule, CommonModule]
+})
+export class AgregarComponent implements OnInit {
+  /**
+   * Reactive form for the task.
+   */
+  taskForm: FormGroup;
+
+  /**
+   * List of available users to assign to the task.
+   */
+  users: User[] &#x3D; [];
+
+  /**
+   * Initializes a new instance of the AgregarComponent class.
+   *
+   * @param fb - FormBuilder to construct the reactive form.
+   * @param taskService - Service to handle task-related operations.
+   * @param userService - Service to handle user-related operations.
+   */
+  constructor(
+    private fb: FormBuilder,
+    private taskService: TaskService,
+    private userService: UserService
+  ) {
+    this.taskForm &#x3D; this.fb.group({
+      title: [&#x27;&#x27;, Validators.required],
+      description: [&#x27;&#x27;],
+      dueDate: [&#x27;&#x27;, Validators.required],
+      progress: [&#x27;PENDING&#x27;, Validators.required],
+      priority: [&#x27;MEDIUM&#x27;, Validators.required],
+      photoUrl: [&#x27;&#x27;, Validators.pattern(&#x27;https?://.+&#x27;)],
+      hours: [0, [Validators.required, Validators.min(0)]],
+      isReady: [false, Validators.required],
+      userId: [0, Validators.required]
+    });
+  }
+
+  /**
+   * Lifecycle hook that is called after Angular has initialized all data-bound properties.
+   *
+   * This method retrieves the list of users to assign tasks to.
+   */
+  ngOnInit(): void {
+    this.userService.getUsers().subscribe({
+      next: users &#x3D;&gt; {
+        this.users &#x3D; users;
+      },
+      error: error &#x3D;&gt; {
+        console.error(&#x27;Error fetching users:&#x27;, error);
+        alert(&#x27;An error occurred while fetching users.&#x27;);
+      }
+    });
+  }
+
+  /**
+   * Adds a new task.
+   *
+   * This method is called when the form is submitted. If the form is valid, the task is saved using the TaskService.
+   */
+  agregarTarea(): void {
+    if (this.taskForm.invalid) {
+      this.taskForm.markAllAsTouched();
+      return;
+    }
+
+    const task: Task &#x3D; this.taskForm.value;
+    this.taskService.saveTask(task).subscribe({
+      next: response &#x3D;&gt; {
+        console.log(&#x27;Task added:&#x27;, response);
+        alert(&#x27;Task added successfully&#x27;);
+        window.location.href &#x3D; &#x27;/listar&#x27;;
+      },
+      error: error &#x3D;&gt; {
+        console.error(&#x27;Error adding task:&#x27;, error);
+        alert(&#x27;An error occurred while adding the task.&#x27;);
+      }
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;h1 class&#x3D;&quot;text-center my-4&quot;&gt;Formulario&lt;/h1&gt;
+
+&lt;form [formGroup]&#x3D;&quot;taskForm&quot; (ngSubmit)&#x3D;&quot;agregarTarea()&quot; class&#x3D;&quot;container w-50 border p-4 rounded&quot;&gt;
+  &lt;div class&#x3D;&quot;form-group mb-3&quot;&gt;
+    &lt;label for&#x3D;&quot;title&quot;&gt;Título:&lt;/label&gt;
+    &lt;input formControlName&#x3D;&quot;title&quot; name&#x3D;&quot;title&quot; type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: taskForm.get(&#x27;title&#x27;)?.invalid &amp;&amp; taskForm.get(&#x27;title&#x27;)?.touched}&quot;&gt;
+    &lt;div *ngIf&#x3D;&quot;taskForm.get(&#x27;title&#x27;)?.invalid &amp;&amp; taskForm.get(&#x27;title&#x27;)?.touched&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
+      El título es requerido.
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;form-group mb-3&quot;&gt;
+    &lt;label for&#x3D;&quot;description&quot;&gt;Descripción de la Tarea:&lt;/label&gt;
+    &lt;textarea formControlName&#x3D;&quot;description&quot; name&#x3D;&quot;description&quot; class&#x3D;&quot;form-control&quot;&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;form-group mb-3&quot;&gt;
+    &lt;label for&#x3D;&quot;dueDate&quot;&gt;Fecha de Vencimiento:&lt;/label&gt;
+    &lt;input formControlName&#x3D;&quot;dueDate&quot; name&#x3D;&quot;dueDate&quot; type&#x3D;&quot;date&quot; class&#x3D;&quot;form-control&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;form-group mb-3&quot;&gt;
+    &lt;label for&#x3D;&quot;progress&quot;&gt;Progreso de la Tarea:&lt;/label&gt;
+    &lt;select formControlName&#x3D;&quot;progress&quot; name&#x3D;&quot;progress&quot; class&#x3D;&quot;form-control&quot;&gt;
+      &lt;option value&#x3D;&quot;PENDING&quot;&gt;Pendiente&lt;/option&gt;
+      &lt;option value&#x3D;&quot;IN_PROGRESS&quot;&gt;En Progreso&lt;/option&gt;
+      &lt;option value&#x3D;&quot;COMPLETED&quot;&gt;Completada&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;form-group mb-3&quot;&gt;
+    &lt;label for&#x3D;&quot;priority&quot;&gt;Prioridad:&lt;/label&gt;
+    &lt;select formControlName&#x3D;&quot;priority&quot; name&#x3D;&quot;priority&quot; class&#x3D;&quot;form-control&quot;&gt;
+      &lt;option value&#x3D;&quot;LOW&quot;&gt;Baja&lt;/option&gt;
+      &lt;option value&#x3D;&quot;MEDIUM&quot;&gt;Media&lt;/option&gt;
+      &lt;option value&#x3D;&quot;HIGH&quot;&gt;Alta&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;form-group mb-3&quot;&gt;
+    &lt;label for&#x3D;&quot;photoUrl&quot;&gt;URL de la Foto:&lt;/label&gt;
+    &lt;input formControlName&#x3D;&quot;photoUrl&quot; name&#x3D;&quot;photoUrl&quot; type&#x3D;&quot;url&quot; class&#x3D;&quot;form-control&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;form-group mb-3&quot;&gt;
+    &lt;label for&#x3D;&quot;hours&quot;&gt;Horas:&lt;/label&gt;
+    &lt;input formControlName&#x3D;&quot;hours&quot; name&#x3D;&quot;hours&quot; type&#x3D;&quot;number&quot; class&#x3D;&quot;form-control&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;form-group mb-3&quot;&gt;
+    &lt;label for&#x3D;&quot;isReady&quot;&gt;¿Listo?:&lt;/label&gt;
+    &lt;select formControlName&#x3D;&quot;isReady&quot; name&#x3D;&quot;isReady&quot; class&#x3D;&quot;form-control&quot;&gt;
+      &lt;option value&#x3D;&quot;false&quot;&gt;No&lt;/option&gt;
+      &lt;option value&#x3D;&quot;true&quot;&gt;Sí&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;form-group mb-3&quot;&gt;
+    &lt;label for&#x3D;&quot;userId&quot;&gt;Asignar a:&lt;/label&gt;
+    &lt;select formControlName&#x3D;&quot;userId&quot; name&#x3D;&quot;userId&quot; class&#x3D;&quot;form-control&quot;&gt;
+      &lt;option *ngFor&#x3D;&quot;let user of users&quot; [value]&#x3D;&quot;user.id&quot;&gt;{{ user.userName }}&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+
+  &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary w-100&quot; [disabled]&#x3D;&quot;taskForm.invalid&quot;&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./agregar.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><h1 class="text-center my-4">Formulario</h1><form [formGroup]="taskForm" (ngSubmit)="agregarTarea()" class="container w-50 border p-4 rounded">  <div class="form-group mb-3">    <label for="title">Título:</label>    <input formControlName="title" name="title" type="text" class="form-control" [ngClass]="{\'is-invalid\': taskForm.get(\'title\')?.invalid && taskForm.get(\'title\')?.touched}">    <div *ngIf="taskForm.get(\'title\')?.invalid && taskForm.get(\'title\')?.touched" class="invalid-feedback">      El título es requerido.    </div>  </div>  <div class="form-group mb-3">    <label for="description">Descripción de la Tarea:</label>    <textarea formControlName="description" name="description" class="form-control"></textarea>  </div>  <div class="form-group mb-3">    <label for="dueDate">Fecha de Vencimiento:</label>    <input formControlName="dueDate" name="dueDate" type="date" class="form-control">  </div>  <div class="form-group mb-3">    <label for="progress">Progreso de la Tarea:</label>    <select formControlName="progress" name="progress" class="form-control">      <option value="PENDING">Pendiente</option>      <option value="IN_PROGRESS">En Progreso</option>      <option value="COMPLETED">Completada</option>    </select>  </div>  <div class="form-group mb-3">    <label for="priority">Prioridad:</label>    <select formControlName="priority" name="priority" class="form-control">      <option value="LOW">Baja</option>      <option value="MEDIUM">Media</option>      <option value="HIGH">Alta</option>    </select>  </div>  <div class="form-group mb-3">    <label for="photoUrl">URL de la Foto:</label>    <input formControlName="photoUrl" name="photoUrl" type="url" class="form-control">  </div>  <div class="form-group mb-3">    <label for="hours">Horas:</label>    <input formControlName="hours" name="hours" type="number" class="form-control">  </div>  <div class="form-group mb-3">    <label for="isReady">¿Listo?:</label>    <select formControlName="isReady" name="isReady" class="form-control">      <option value="false">No</option>      <option value="true">Sí</option>    </select>  </div>  <div class="form-group mb-3">    <label for="userId">Asignar a:</label>    <select formControlName="userId" name="userId" class="form-control">      <option *ngFor="let user of users" [value]="user.id">{{ user.userName }}</option>    </select>  </div>  <button type="submit" class="btn btn-primary w-100" [disabled]="taskForm.invalid">Enviar</button></form></div>'
+    var COMPONENTS = [{'name': 'AgregarComponent', 'selector': 'app-agregar'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'EditarComponent', 'selector': 'app-editar'},{'name': 'InicioComponent', 'selector': 'app-inicio'},{'name': 'ListaComponent', 'selector': 'app-lista-tareas'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AgregarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AgregarComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

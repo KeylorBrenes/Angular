@@ -1,0 +1,69 @@
+<h1 class="text-center my-4">Editar Tarea</h1>
+
+<form [formGroup]="taskForm" (ngSubmit)="saveTask()" class="container w-50 border p-4 rounded">
+  <div class="form-group mb-3">
+    <label for="title">Título:</label>
+    <input formControlName="title" name="title" type="text" class="form-control" [ngClass]="{'is-invalid': taskForm.get('title')?.invalid && taskForm.get('title')?.touched}">
+    <div *ngIf="taskForm.get('title')?.invalid && taskForm.get('title')?.touched" class="invalid-feedback">
+      El título es requerido.
+    </div>
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="description">Descripción de la Tarea:</label>
+    <textarea formControlName="description" name="description" class="form-control"></textarea>
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="dueDate">Fecha de Vencimiento:</label>
+    <input formControlName="dueDate" name="dueDate" type="date" class="form-control">
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="progress">Progreso de la Tarea:</label>
+    <select formControlName="progress" name="progress" class="form-control">
+      <option value="PENDING">Pendiente</option>
+      <option value="IN_PROGRESS">En Progreso</option>
+      <option value="COMPLETED">Completada</option>
+    </select>
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="priority">Prioridad:</label>
+    <select formControlName="priority" name="priority" class="form-control">
+      <option value="LOW">Baja</option>
+      <option value="MEDIUM">Media</option>
+      <option value="HIGH">Alta</option>
+    </select>
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="photo_url">URL de la Foto:</label>
+    <input formControlName="photo_url" name="photo_url" type="url" class="form-control">
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="hours">Horas:</label>
+    <input formControlName="hours" name="hours" type="number" class="form-control">
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="is_ready">¿Listo?:</label>
+    <select formControlName="isReady" name="is_ready" class="form-control">
+      <option value="false">No</option>
+      <option value="true">Sí</option>
+    </select>
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="userId">Asignar a:</label>
+    <select formControlName="userId" name="userId" class="form-control">
+      <option *ngFor="let user of users" [value]="user.id">{{ user.userName }}</option>
+    </select>
+    <div *ngIf="taskForm.get('userId')?.invalid && taskForm.get('userId')?.touched" class="invalid-feedback">
+      Debes seleccionar un usuario.
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary w-100" [disabled]="taskForm.invalid">Actualizar Tarea</button>
+</form>
