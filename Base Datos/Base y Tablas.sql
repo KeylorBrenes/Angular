@@ -24,3 +24,14 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getAllUsers`()
+BEGIN
+    SELECT id, user_name, email, is_active 
+    FROM users 
+    WHERE is_active = 1;
+END$$
+
+DELIMITER ;
